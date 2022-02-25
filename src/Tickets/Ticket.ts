@@ -4,14 +4,14 @@ class Ticket {
 	readonly TYPE_CHILDREN: string = 'C';
     readonly TYPE_STUDENT: string = 'S';
     readonly TYPE_ELDERLY: string = 'E';
-    readonly price: number;
+    readonly PRICE: number;
 
     discounts: Discount[];
+    date: Date;
 
-
-	constructor()
-	{        
-		console.log('Ticket');
+	constructor(date: Date)
+	{
+        this.date = date;
 	}
 
     addDiscount(discount: Discount)
@@ -21,7 +21,7 @@ class Ticket {
 
 	calculate()
 	{
-		return this.price;
+		return this.PRICE;
 	}
 }
 

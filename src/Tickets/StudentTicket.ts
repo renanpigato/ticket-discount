@@ -1,12 +1,25 @@
 import Ticket from './Ticket';
 
 class StudentTicket extends Ticket {
-	readonly price: number = 8;
+	readonly PRICE: number = 8;
+	readonly DISCOUNT_PERCENT: number = 0.35;
+	readonly WEEKEND: number[] = [6, 0];
 
-	constructor()
+	constructor(date: Date)
 	{
-		super();
-		console.log('StudentTicket');
+		super(date);
+	}
+
+	calculate()
+	{
+		const basePrice = super.calculate();
+		let discount = this.DISCOUNT_PERCENT;
+
+		if (this.WEEKEND.indexOf(this.date.getDay()) > -1) {
+			discount = 0;
+		}
+
+		return basePrice - (basePrice * discount)
 	}
 }
 
