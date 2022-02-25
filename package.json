@@ -1,0 +1,35 @@
+{
+  "name": "umovme-test",
+  "version": "1.0.0",
+  "description": "Teste de desenvolvimento",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renanpigato/ticket-discount.git"
+  },
+  "keywords": [
+    "ticket",
+    "discount",
+    "unit-tests"
+  ],
+  "author": "Renan Pigato Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renanpigato/ticket-discount/issues"
+  },
+  "homepage": "https://github.com/renanpigato/ticket-discount#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "babel-jest": "^27.5.1",
+    "typescript": "^4.5.5"
+  }
+}
