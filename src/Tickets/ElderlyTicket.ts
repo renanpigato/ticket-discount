@@ -1,13 +1,12 @@
 import Ticket from './Ticket';
 
 class ElderlyTicket extends Ticket {
-	readonly price: number = 5.5;
+    readonly PRICE: number = 6;
 
-	constructor()
-	{
-		super();
-		console.log('ElderlyTicket');
-	}
+    constructor(date: Date)
+    {
+        super(date, Ticket.TYPE_ELDERLY);
+    }
 }
 
 module.exports = ElderlyTicket;
