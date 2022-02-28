@@ -1,3 +1,4 @@
+import CalendarDate from '../CalendarDate/CalendarDate';
 import Ticket from './Ticket';
 
 class StudentTicket extends Ticket {
@@ -5,7 +6,7 @@ class StudentTicket extends Ticket {
     readonly DISCOUNT_PERCENT: number = 0.35;
     readonly WEEKEND: number[] = [6, 0];
 
-    constructor(date: Date)
+    constructor(date: CalendarDate)
     {
         super(date, Ticket.TYPE_STUDENT);
     }
@@ -15,11 +16,11 @@ class StudentTicket extends Ticket {
         const basePrice = this.PRICE;
         let discount = this.DISCOUNT_PERCENT;
 
-        if (this.WEEKEND.indexOf(this.date.getDay()) > -1) {
+        if (this.WEEKEND.indexOf(this.date.date.getDay()) > -1) {
             discount = 0;
         }
 
-        return basePrice - (basePrice * discount)
+        return basePrice - (basePrice * discount);
     }
 }
 
