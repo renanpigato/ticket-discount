@@ -1,21 +1,18 @@
-import Ticket from './Ticket';
+import Ticket from '../Ticket';
+import CalendarDate from './CalendarDate/CalendarDate';
 class Discount {
     basePrice: number = 0;
-    date: Date;
     typeTicket: string = Ticket.TYPE_DEFAULT;
 
-    constructor(basePrice: number, date: Date, typeTicket: string)
+    constructor(basePrice: number, typeTicket: string)
     {
         this.basePrice = basePrice;
-        this.date = date;
         this.typeTicket = typeTicket;
     }
 
     calculate()
     {
-        const discount = this.basePrice * 0.1;
-
-        return discount;
+        return 0;
     }
 }
 
