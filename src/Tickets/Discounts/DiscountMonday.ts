@@ -10,7 +10,7 @@ class DiscountMonday extends Discount {
 
     calculate()
     {
-        return this.basePrice * this.DISCOUNT;
+        return this.basePrice * DiscountMonday.DISCOUNT;
     }
 }
 
