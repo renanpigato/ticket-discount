@@ -7,31 +7,78 @@ export default class Ticket {
     static readonly TYPE_CHILDREN: string = 'C';
     static readonly TYPE_STUDENT: string = 'S';
     static readonly TYPE_ELDERLY: string = 'E';
-    static readonly PRICE: number;
-
-    date: CalendarDate;
-    typeSelected: string = Ticket.TYPE_DEFAULT;
+    
+    _price: number;
+    _date: CalendarDate;
+    _typeSelected: string = Ticket.TYPE_DEFAULT;
 
     constructor(date: CalendarDate, typeSelected: string | null)
     {
-        this.date = date;
+        this._date = date;
 
         if (!!typeSelected) {
-            this.typeSelected = typeSelected;
+            this._typeSelected = typeSelected;
         }
+    }
+
+    set price(price: number)
+    {
+        this._price = price;
+    }
+
+    set date(date: CalendarDate)
+    {
+        this._date = date;
+    }
+
+    set typeSelected(typeSelected: string)
+    {
+        this._typeSelected = typeSelected;
+    }
+
+    get price(): number
+    {
+        switch(this._typeSelected) {
+            case Ticket.TYPE_CHILDREN:
+                return 5.5;
+
+            case Ticket.TYPE_STUDENT:
+                return 8;
+
+            case Ticket.TYPE_ELDERLY:
+                return 6;
+        }
+
+        return 10; // Ticket.TYPE_DEFAULT
+    }
+
+    get date(): CalendarDate
+    {
+        return this._date;
+    }
+
+    get typeSelected(): string
+    {
+        return this._typeSelected;
     }
 
     calculate(discount: Discount | null = null)
     {
-        const price = this.PRICE;
-        const discountCalculate = !!discount ? discount : DiscountFactory.create(this.date, price, this.typeSelected);
+        const price = this.price;
+        const discountCalculated = !!discount ? discount : DiscountFactory.create(
+            this._date,
+            price,
+            this._typeSelected
+        );
         /*
         console.log('Ticket - calculate'
             ,price
-            ,discountCalculate
+            ,discountCalculated.calculate()
+            ,Math.round(discountCalculated.calculate())
+            ,price - Math.round(discountCalculated.calculate())
         );
         */
 
-        return (price - discountCalculate.calculate());
+        return Math.round((price - discountCalculated.calculate() + Number.EPSILON) * 100) / 100;
     }
 }
