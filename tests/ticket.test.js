@@ -2,8 +2,6 @@ import CalendarDate from '../src/CalendarDate/CalendarDate';
 import TicketFactory from '../src/Tickets/Factories/TicketFactory';
 import Ticket from '../src/Tickets/Ticket';
 import StudentTicket from '../src/Tickets/StudentTicket';
-import ChildrenTicket from '../src/Tickets/ChildrenTicket';
-import ElderlyTicket from '../src/Tickets/ElderlyTicket';
 
 test('Discount to student', () => {
   expect((new StudentTicket(new CalendarDate(new Date('September 15, 1986 8:00:00')))).calculate()).toBe(5.2); // Monday
@@ -38,6 +36,20 @@ test('Tickets at Tuesday', () => {
   expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(4.68);
   expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
   expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.1);
+
+  date.dayOf = true;
+
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
+});
+
+test('Tickets at Wednesday', () => {
+  const date = new CalendarDate(new Date('September 17, 1986 8:00:00'));
+
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(3.85);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(3.6);
 
   date.dayOf = true;
 
