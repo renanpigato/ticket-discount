@@ -14,4 +14,9 @@ export default class Discount {
     {
         return 0;
     }
+
+    apply(value: number | null)
+    {
+        return value ? (this.basePrice * value ) : 0;
+    }
 }

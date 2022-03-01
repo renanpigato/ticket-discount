@@ -10,6 +10,6 @@ export default class DiscountMonday extends Discount {
 
     calculate()
     {
-        return this.basePrice * DiscountMonday.DISCOUNT;
+        return super.apply(DiscountMonday.DISCOUNT);
     }
 }

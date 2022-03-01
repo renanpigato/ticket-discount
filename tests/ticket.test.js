@@ -21,13 +21,27 @@ test('Student has no discount', () => {
 test('Tickets at Monday', () => {
   const date = new CalendarDate(new Date('September 15, 1986 8:00:00'));
 
-  expect((new ChildrenTicket(date)).calculate()).toBe(4.95);
-  expect((new StudentTicket(date)).calculate()).toBe(5.2);
-  expect((new ElderlyTicket(date)).calculate()).toBe(5.4);
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(4.95);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.4);
 
   date.dayOf = true;
 
-  expect((TicketFactory.create(Ticket.TYPE_CHILDREN, date)).calculate()).toBe(5.5);
-  expect((TicketFactory.create(Ticket.TYPE_STUDENT, date)).calculate()).toBe(5.2);
-  expect((TicketFactory.create(Ticket.TYPE_ELDERLY, date)).calculate()).toBe(5.7);
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
+});
+
+test('Tickets at Tuesday', () => {
+  const date = new CalendarDate(new Date('September 16, 1986 8:00:00'));
+
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(4.68);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.1);
+
+  date.dayOf = true;
+
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
 });
