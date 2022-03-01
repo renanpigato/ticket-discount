@@ -71,3 +71,17 @@ test('Tickets at Thursday', () => {
   expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
   expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
 });
+
+test('Tickets at Friday', () => {
+  const date = new CalendarDate(new Date('September 19, 1986 8:00:00'));
+
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(4.89);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(6);
+
+  date.dayOf = true;
+
+  expect((TicketFactory.create(date, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
+  expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
+});
