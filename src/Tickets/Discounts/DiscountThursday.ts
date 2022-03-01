@@ -16,7 +16,7 @@ export default class DiscountThursday extends Discount {
             return super.apply(DiscountThursday.DISCOUNT_ELDERLY);
         }
 
-        return super.apply(DiscountThursday.DISCOUNT);
+        return super.apply(super.DISCOUNT);
     }
 }
     

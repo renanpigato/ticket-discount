@@ -20,6 +20,6 @@ export default class DiscountWednesday extends Discount {
             return super.apply(DiscountWednesday.DISCOUNT_ELDERLY);
         }
 
-        return 0;
+        return super.apply(super.DISCOUNT);
     }
 }

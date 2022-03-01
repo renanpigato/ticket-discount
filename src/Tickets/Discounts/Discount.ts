@@ -1,6 +1,8 @@
 import Ticket from '../Ticket';
 
 export default class Discount {
+    static readonly DISCOUNT = 0;
+
     basePrice: number = 0;
     typeTicket: string = Ticket.TYPE_DEFAULT;
 
@@ -12,7 +14,7 @@ export default class Discount {
 
     calculate()
     {
-        return 0;
+        return Discount.DISCOUNT;
     }
 
     apply(value: number | null)
