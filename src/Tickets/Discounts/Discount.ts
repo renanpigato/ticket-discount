@@ -1,6 +1,6 @@
 import Ticket from '../Ticket';
-import CalendarDate from './CalendarDate/CalendarDate';
-class Discount {
+
+export default class Discount {
     basePrice: number = 0;
     typeTicket: string = Ticket.TYPE_DEFAULT;
 
@@ -15,5 +15,3 @@ class Discount {
         return 0;
     }
 }
-
-module.exports = Discount;

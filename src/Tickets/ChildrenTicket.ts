@@ -1,7 +1,7 @@
 import CalendarDate from './CalendarDate/CalendarDate';
 import Ticket from './Ticket';
 
-class ChildrenTicket extends Ticket {
+export default class ChildrenTicket extends Ticket {
     readonly PRICE: number = 5.5;
 
     constructor(date: CalendarDate)
@@ -9,5 +9,3 @@ class ChildrenTicket extends Ticket {
         super(date, Ticket.TYPE_CHILDREN);
     }
 }
-
-module.exports = ChildrenTicket;

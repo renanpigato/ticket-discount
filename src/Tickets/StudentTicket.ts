@@ -1,7 +1,7 @@
 import CalendarDate from '../CalendarDate/CalendarDate';
 import Ticket from './Ticket';
 
-class StudentTicket extends Ticket {
+export default class StudentTicket extends Ticket {
     readonly PRICE: number = 8;
     readonly DISCOUNT_PERCENT: number = 0.35;
     readonly WEEKEND: number[] = [6, 0];
@@ -23,5 +23,3 @@ class StudentTicket extends Ticket {
         return basePrice - (basePrice * discount);
     }
 }
-
-module.exports = StudentTicket;

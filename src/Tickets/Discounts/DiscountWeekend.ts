@@ -1,7 +1,7 @@
 import Ticket from '../Ticket';
 import Discount from './Discount';
 
-class DiscountWeekend extends Discount {
+export default class DiscountWeekend extends Discount {
     static readonly DISCOUNT = 0.05;
     
     constructor(basePrice: number, typeTicket: string)
@@ -11,14 +11,6 @@ class DiscountWeekend extends Discount {
 
     calculate()
     {
-        console.log('DiscountWeekend - calculate'
-            ,this.typeTicket
-            ,this.basePrice
-            ,DiscountWeekend.DISCOUNT
-            ,Ticket.TYPE_ELDERLY
-            ,this.DISCOUNT
-            ,this
-        )
         if (this.typeTicket === Ticket.TYPE_ELDERLY) {
             return this.basePrice * DiscountWeekend.DISCOUNT;
         }
@@ -26,5 +18,3 @@ class DiscountWeekend extends Discount {
         return 0;
     }
 }
-    
-module.exports = DiscountWeekend;

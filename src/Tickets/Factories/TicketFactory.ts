@@ -4,7 +4,7 @@ import ChildrenTicket from '../ChildrenTicket';
 import StudentTicket from '../StudentTicket';
 import ElderlyTicket from '../ElderlyTicket';
 
-class TicketFactory {
+export default class TicketFactory {
     static create(type: string, date: CalendarDate)
     {
         switch(type) {
@@ -19,5 +19,3 @@ class TicketFactory {
         return new Ticket(date);
     }
 }
-
-module.exports = TicketFactory;

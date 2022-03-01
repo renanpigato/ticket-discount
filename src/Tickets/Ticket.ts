@@ -2,7 +2,7 @@ import CalendarDate from './CalendarDate/CalendarDate';
 import Discount from './Discounts/Discount';
 import DiscountFactory from './Discounts/Factories/DiscountFactory';
 
-class Ticket {
+export default class Ticket {
     static readonly TYPE_DEFAULT: string = 'D';
     static readonly TYPE_CHILDREN: string = 'C';
     static readonly TYPE_STUDENT: string = 'S';
@@ -25,13 +25,13 @@ class Ticket {
     {
         const price = this.PRICE;
         const discountCalculate = !!discount ? discount : DiscountFactory.create(this.date, price, this.typeSelected);
+        /*
         console.log('Ticket - calculate'
             ,price
             ,discountCalculate
         );
+        */
 
         return (price - discountCalculate.calculate());
     }
 }
-
-module.exports = Ticket;

@@ -1,6 +1,6 @@
 import Discount from './Discount';
 
-class DiscountMonday extends Discount {
+export default class DiscountMonday extends Discount {
     static readonly DISCOUNT = 0.1;
 
     constructor(basePrice: number, typeTicket: string)
@@ -13,5 +13,3 @@ class DiscountMonday extends Discount {
         return this.basePrice * DiscountMonday.DISCOUNT;
     }
 }
-
-module.exports = DiscountMonday;

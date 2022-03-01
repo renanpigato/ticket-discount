@@ -7,7 +7,7 @@ import DiscountThursday from '../DiscountThursday';
 import DiscountFriday from '../DiscountFriday';
 import DiscountWeekend from '../DiscountWeekend';
 
-class DiscountFactory {
+export default class DiscountFactory {
     static create(date: CalendarDate, basePrice: number, ticketType: string) {
 
         if (date.isDayOf()) {
@@ -33,5 +33,3 @@ class DiscountFactory {
         return new Discount(basePrice, ticketType);
     }
 }
-
-module.exports = DiscountFactory;

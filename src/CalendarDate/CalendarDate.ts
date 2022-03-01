@@ -1,4 +1,4 @@
-class CalendarDate {
+export default class CalendarDate {
     _date: Date;
     _dayOf: boolean = false;
 
@@ -31,5 +31,3 @@ class CalendarDate {
         return this._dayOf;
     }
 }
-
-module.exports = CalendarDate;
