@@ -74,8 +74,12 @@ export default class Ticket {
         console.log('Ticket - calculate'
             ,price
             ,discountCalculated.calculate()
-            ,Math.round(discountCalculated.calculate())
-            ,price - Math.round(discountCalculated.calculate())
+            ,price - discountCalculated.calculate()
+            ,(price - discountCalculated.calculate() + Number.EPSILON)
+            ,(price - discountCalculated.calculate() + Number.EPSILON) * 100
+            ,Math.round((price - discountCalculated.calculate() + Number.EPSILON) * 100)
+            ,Math.round((price - discountCalculated.calculate() + Number.EPSILON) * 100) / 100
+            ,Number.EPSILON
         );
         */
 
