@@ -70,14 +70,6 @@ export default class Ticket {
             price,
             this._typeSelected
         );
-        /*
-        console.log('Ticket - calculate'
-            ,price
-            ,discountCalculated.calculate()
-            ,Math.round(discountCalculated.calculate())
-            ,price - Math.round(discountCalculated.calculate())
-        );
-        */
 
         return Math.round((price - discountCalculated.calculate() + Number.EPSILON) * 100) / 100;
     }
