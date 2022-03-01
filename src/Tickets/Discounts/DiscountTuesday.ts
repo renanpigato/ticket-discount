@@ -1,6 +1,6 @@
 import Discount from './Discount';
 
-export default class DiscountTueday extends Discount {
+export default class DiscountTuesday extends Discount {
     static readonly DISCOUNT = 0.15;
 
     constructor(basePrice: number, typeTicket: string)
@@ -10,6 +10,6 @@ export default class DiscountTueday extends Discount {
 
     calculate()
     {
-        return super.apply(DiscountTueday.DISCOUNT);
+        return super.apply(DiscountTuesday.DISCOUNT);
     }
 }
