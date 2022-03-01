@@ -85,3 +85,30 @@ test('Tickets at Friday', () => {
   expect((TicketFactory.create(date, Ticket.TYPE_STUDENT)).calculate()).toBe(5.2);
   expect((TicketFactory.create(date, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
 });
+
+test('Tickets at Weekend', () => {
+  const saturday = new CalendarDate(new Date('September 20, 1986 8:00:00'));
+
+  expect((TicketFactory.create(saturday, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(saturday, Ticket.TYPE_STUDENT)).calculate()).toBe(8);
+  expect((TicketFactory.create(saturday, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
+
+  saturday.dayOf = true;
+
+  expect((TicketFactory.create(saturday, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(saturday, Ticket.TYPE_STUDENT)).calculate()).toBe(8);
+  expect((TicketFactory.create(saturday, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
+
+
+  const sunday = new CalendarDate(new Date('September 21, 1986 8:00:00'));
+
+  expect((TicketFactory.create(sunday, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(sunday, Ticket.TYPE_STUDENT)).calculate()).toBe(8);
+  expect((TicketFactory.create(sunday, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
+
+  sunday.dayOf = true;
+
+  expect((TicketFactory.create(sunday, Ticket.TYPE_CHILDREN)).calculate()).toBe(5.5);
+  expect((TicketFactory.create(sunday, Ticket.TYPE_STUDENT)).calculate()).toBe(8);
+  expect((TicketFactory.create(sunday, Ticket.TYPE_ELDERLY)).calculate()).toBe(5.7);
+});
