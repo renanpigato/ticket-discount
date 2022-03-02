@@ -1,8 +1,8 @@
 
-## Requirements
+## Requisitos
 [NodeJS](https://nodejs.org/en/)
 
-## Running
+## Rodando
 ```
 npm install
 npm run test
