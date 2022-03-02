@@ -1,4 +1,15 @@
 
+## Requirements
+[NodeJS](https://nodejs.org/en/)
+
+## Running
+```
+npm install
+npm run test
+```
+
+
+
 
 Calcule os seguintes descontos para as entradas dado o preço dos ingressos:
 
